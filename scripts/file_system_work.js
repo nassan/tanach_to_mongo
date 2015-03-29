@@ -1,9 +1,9 @@
 // Incudes
 var fs = require('fs')
+var path = require('path')
 var S = require('string')
 var parse = require('./parsing_work')
-
-var directory_path = "tanach\\x\\"
+var directory_path = path.normalize("tanach/x/")
 
 
 var filterFileNames = function(list){
@@ -43,14 +43,16 @@ var listDirectory = function(dir_path){
 }
 
 var readPerekLevelFile = function(file_path){
-	var options = {
-		flags : 'r',
-		encoding : 'utf8'
-	}
+	// var options = {
+	// 	flags : 'r',
+	// 	encoding : 'utf8'
+	// }
 
 	// fs.createReadStream(file_path, options)
 	
-	fs.readFile(file_path, options, readPerekLevelFileCB)
+	// fs.readFile(file_path, options, readPerekLevelFileCB)
+	fs.readFile(file_path, readPerekLevelFileCB)
+	// console.log(decode(fs.readFileSync(file_path)))
 }
 
 var readPerekLevelFileCB = function(err, data){
