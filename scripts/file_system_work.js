@@ -4,6 +4,7 @@ var path = require('path')
 var S = require('string')
 var parse = require('./parsing_work')
 var directory_path = path.normalize("tanach/x/")
+var emitter = require('./emitter').emitter
 
 
 var filterFileNames = function(list){
@@ -58,7 +59,8 @@ var readPerekLevelFile = function(file_path){
 var readPerekLevelFileCB = function(err, data){
 	if(err) throw err;
 
-	parse.loadForParsing(data)
+	// parse.loadForParsing(data)
+	emitter.emit('ready_to_parse', data)
 
 }
 

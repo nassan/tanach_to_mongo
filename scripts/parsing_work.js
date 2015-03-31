@@ -2,7 +2,7 @@
 var Iconv = require('iconv').Iconv;
 var cheerio = require('cheerio')
 var S = require('string')
-
+var fs = require('fs')
 // Function definitions
 
 var getPerekMetaData = function(chrio){
@@ -13,9 +13,12 @@ var getPerekMetaData = function(chrio){
 		perek_index : null
 	}
 
-	var both_string = chrio("body").find("h1").text()
-	var both_array = both_string.split("פרק")
-	console.log(both_array)
+	var both_string = chrio("body").find("h1")
+	var both_string_test = both_string.text()
+	console.trace()
+	// var both_array = both_string.split("פרק")
+	// fs.writeFileSync("test.html", both_string)
+	// console.log(both_array)
 }
 
 var decode =function (content) {

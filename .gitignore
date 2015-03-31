@@ -76,3 +76,6 @@ $RECYCLE.BIN/
 
 # Directories
 tanach
+
+#Databases
+*.db
