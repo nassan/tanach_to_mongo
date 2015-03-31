@@ -7,22 +7,23 @@ var directory_path = path.normalize("tanach/x/")
 var emitter = require('./emitter').emitter
 
 
-var filterFileNames = function(list){
-	var filtered_list = []
+var filterFileNames = function(file_list){
+	// console.log(file_list.length)
+	var filtered_file_list = []
 
 	// For loop to null out the 
-	for (var i = 0; i < list.length; i++) {
-		var str = S(list[i])
+	for (var i = 0; i < file_list.length; i++) {
+		var str = S(file_list[i])
 		if (str.length > 8 && 
 			str.endsWith('.htm') && 
 			containsANumber(str))
 			{
-				filtered_list.push(list[i])
+				filtered_file_list.push(file_list[i])
 			}
 	}
-
+	// console.log(filtered_file_list.length)
 	// Begin opening the files
-	openFiles(filtered_list)
+	openFiles(filtered_file_list)
 
 }
 
@@ -59,7 +60,6 @@ var readPerekLevelFile = function(file_path){
 var readPerekLevelFileCB = function(err, data){
 	if(err) throw err;
 
-	// parse.loadForParsing(data)
 	emitter.emit('ready_to_parse', data)
 
 }

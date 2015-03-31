@@ -1,10 +1,7 @@
 // Includes
-var Iconv = require('iconv').Iconv;
-var cheerio = require('cheerio')
-var S = require('string')
 var fs = require('fs')
-// Function definitions
 
+// Function definitions
 var getPerekMetaData = function(chrio){
 	
 	var meta = {
